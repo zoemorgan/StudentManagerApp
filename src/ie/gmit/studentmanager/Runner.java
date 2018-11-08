@@ -26,13 +26,11 @@ public class Runner extends Application {
 
 		Text myText = new Text("Please select a Menu Option below:");
 		Button buttonLoadDB = new Button("Load DB");
-		Button buttonSearchByID = new Button("Search by ID");
 		Button buttonSearchByFirstName = new Button("Search by First Name");
 		Button buttonSaveDB = new Button("Save DB");
 		Button buttonQuit = new Button("Quit");	
 		TextArea myOutput = new TextArea();
 		TextField textDB = new TextField("Load DB");
-		TextField textSearchID = new TextField("Enter ID to Search");
 		TextField textSearchFname = new TextField("Enter First name to search");
 
 		GridPane myGridPane = new GridPane();
@@ -49,6 +47,14 @@ public class Runner extends Application {
 		TextField textDelete = new TextField("Enter ID to delete");
 		buttonDelete.setOnAction(e -> {
 			sm.delete(textDelete.getText());
+		});
+		
+		//search by id button and event
+		Button buttonSearchByID = new Button("Search by ID");
+		TextField textSearchID = new TextField("Enter ID to Search");
+		buttonSearchByID.setOnAction(e -> {
+			sm.getStudentByID(textSearchID.getText());
+			
 		});
 		
 		//show total button & event
