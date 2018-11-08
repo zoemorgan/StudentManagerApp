@@ -53,8 +53,12 @@ public class Runner extends Application {
 		Button buttonSearchByID = new Button("Search by ID");
 		TextField textSearchID = new TextField("Enter ID to Search");
 		buttonSearchByID.setOnAction(e -> {
-			sm.getStudentByID(textSearchID.getText());
-			
+			Student studentObj = sm.getStudentByID(textSearchID.getText());
+			if(studentObj !=null) {
+				myOutput.setText(studentObj.toString());
+			} else {
+				myOutput.setText("No student found.");
+			}
 		});
 		
 		//show total button & event
